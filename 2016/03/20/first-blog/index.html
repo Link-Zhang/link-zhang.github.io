@@ -111,17 +111,17 @@
 
 
 
-<meta name="description" content="This is my first blog to mark down how I set up my Blog. Here are the details: GitAll blog files are put on GitHub. And I use git to pull or push. Create ssh keys1$ ssh-keygen -t rsa -C &quot;Link.Zhang.0@">
+<meta name="description" content="This is my first blog to mark down how I set up my Blog. Here are the details: GitAll blog files are put on GitHub. And I use git to pull or push.">
 <meta name="keywords" content="blog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="First Blog">
 <meta property="og:url" content="http://link-zhang.github.io/2016/03/20/first-blog/index.html">
 <meta property="og:site_name" content="Link Zhang">
-<meta property="og:description" content="This is my first blog to mark down how I set up my Blog. Here are the details: GitAll blog files are put on GitHub. And I use git to pull or push. Create ssh keys1$ ssh-keygen -t rsa -C &quot;Link.Zhang.0@">
-<meta property="og:updated_time" content="2017-06-21T05:28:15.000Z">
+<meta property="og:description" content="This is my first blog to mark down how I set up my Blog. Here are the details: GitAll blog files are put on GitHub. And I use git to pull or push.">
+<meta property="og:updated_time" content="2017-06-28T06:00:34.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="First Blog">
-<meta name="twitter:description" content="This is my first blog to mark down how I set up my Blog. Here are the details: GitAll blog files are put on GitHub. And I use git to pull or push. Create ssh keys1$ ssh-keygen -t rsa -C &quot;Link.Zhang.0@">
+<meta name="twitter:description" content="This is my first blog to mark down how I set up my Blog. Here are the details: GitAll blog files are put on GitHub. And I use git to pull or push.">
 
 
 
@@ -400,20 +400,17 @@
 
       
         <p><strong>This is my first blog to mark down how I set up my Blog. Here are the details:</strong></p>
-<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>All blog files are put on GitHub. And I use git to pull or push.</p>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>All blog files are put on GitHub. And I use git to pull or push.<br><a id="more"></a> </p>
 <h2 id="Create-ssh-keys"><a href="#Create-ssh-keys" class="headerlink" title="Create ssh keys"></a>Create ssh keys</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"Link.Zhang.0@gmail.com"</span></div></pre></td></tr></table></figure>
-<a id="more"></a> 
 <h2 id="Paste-public-key-to-your-github"><a href="#Paste-public-key-to-your-github" class="headerlink" title="Paste public key to your github"></a>Paste public key to your github</h2><p>Open the file <strong>“~/.ssh/id_rsa.pub”</strong> , copy it and paste on github ssh key.</p>
 <h2 id="Configure-git"><a href="#Configure-git" class="headerlink" title="Configure git"></a>Configure git</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git config --global user.name <span class="string">"Link Zhang"</span></div><div class="line">$ git config --global user.email <span class="string">"Link.Zhang.0@gmail.com"</span></div></pre></td></tr></table></figure>
 <h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
 <h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><p>Download pkg packet and double click to install.</p>
 <h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ npm install -g hexo-cli --save</div><div class="line">$ npm install hexo-deployer-git --save</div><div class="line">$ npm install hexo-fs --save</div><div class="line">$ npm install hexo --save</div><div class="line">$ npm list --depth=0 -g</div><div class="line">$ npm list --depth=0</div></pre></td></tr></table></figure>
 <h2 id="Init"><a href="#Init" class="headerlink" title="Init"></a>Init</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo init blog</div></pre></td></tr></table></figure>
-<h2 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h2><p>Configure the <strong>_config.yuml</strong> to </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repository: [github repository address]</div><div class="line">	branch: master</div></pre></td></tr></table></figure>
+<h2 id="Configure"><a href="#Configure" class="headerlink" title="Configure"></a>Configure</h2><p>Configure the <strong>_config.yuml</strong> to<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">	type: git</div><div class="line">	repository: [github repository address]</div><div class="line">	branch: master</div></pre></td></tr></table></figure></p>
 <h2 id="Deploy"><a href="#Deploy" class="headerlink" title="Deploy"></a>Deploy</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo d -g</div></pre></td></tr></table></figure>
-<h1 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h1><p>Modified Next theme to Link theme.</p>
-<p><strong>End</strong></p>
+<h1 id="Next"><a href="#Next" class="headerlink" title="Next"></a>Next</h1><p>Modified Next theme to Link theme.<br><strong>End</strong></p>
 
       
     </div>
@@ -558,7 +555,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -569,7 +566,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -580,7 +577,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
