@@ -95,7 +95,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="markdown," />
+  <meta name="keywords" content="OS X," />
 
 
 
@@ -111,17 +111,17 @@
 
 
 
-<meta name="description" content="Markdown Syntax">
-<meta name="keywords" content="markdown">
+<meta name="description" content="OS X 下使用Privoxy共享SS：">
+<meta name="keywords" content="OS X">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Markdown Syntax">
-<meta property="og:url" content="http://link-zhang.github.io/2017/06/28/4_markdown_syntax/index.html">
+<meta property="og:title" content="Privoxy">
+<meta property="og:url" content="http://link-zhang.github.io/2017/07/06/6_privoxy/index.html">
 <meta property="og:site_name" content="Link Zhang">
-<meta property="og:description" content="Markdown Syntax">
-<meta property="og:updated_time" content="2017-07-05T05:52:50.000Z">
+<meta property="og:description" content="OS X 下使用Privoxy共享SS：">
+<meta property="og:updated_time" content="2017-07-06T11:00:10.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Markdown Syntax">
-<meta name="twitter:description" content="Markdown Syntax">
+<meta name="twitter:title" content="Privoxy">
+<meta name="twitter:description" content="OS X 下使用Privoxy共享SS：">
 
 
 
@@ -149,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://link-zhang.github.io/2017/06/28/4_markdown_syntax/"/>
+  <link rel="canonical" href="http://link-zhang.github.io/2017/07/06/6_privoxy/"/>
 
 
 
 
 
-  <title> Markdown Syntax | Link Zhang </title>
+  <title> Privoxy | Link Zhang </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -295,7 +295,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://link-zhang.github.io/2017/06/28/4_markdown_syntax/">
+    <link itemprop="mainEntityOfPage" href="http://link-zhang.github.io/2017/07/06/6_privoxy/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhixiang Zhang">
@@ -316,7 +316,7 @@
             
             
               
-                Markdown Syntax
+                Privoxy
               
             
           </h1>
@@ -331,8 +331,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-28T14:49:38+08:00">
-                2017-06-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-06T00:00:00+08:00">
+                2017-07-06
               </time>
             
 
@@ -354,8 +354,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Book/" itemprop="url" rel="index">
-                    <span itemprop="name">Book</span>
+                  <a href="/categories/Journal/" itemprop="url" rel="index">
+                    <span itemprop="name">Journal</span>
                   </a>
                 </span>
 
@@ -372,7 +372,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/06/28/4_markdown_syntax/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/07/06/6_privoxy/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -399,16 +399,25 @@
       
 
       
-        <blockquote class="blockquote-center"><p>Markdown Syntax</p>
+        <blockquote class="blockquote-center"><p>OS X 下使用Privoxy共享SS：</p>
 </blockquote>
 <a id="more"></a> 
-
-
-	<div class="row">
-    <embed src="/pdf/1_Markdown_Syntax.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
+<h1 id="Install-Homebrew"><a href="#Install-Homebrew" class="headerlink" title="Install Homebrew"></a>Install Homebrew</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL   https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure>
+<h1 id="Install-Privoxy"><a href="#Install-Privoxy" class="headerlink" title="Install Privoxy"></a>Install Privoxy</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install privoxy</div></pre></td></tr></table></figure>
+<h1 id="Modify-Config"><a href="#Modify-Config" class="headerlink" title="Modify Config"></a>Modify Config</h1><p>其中，</p>
+<ul>
+<li>8118为局域网内的监听端口</li>
+<li>0.0.0.0为局域网内监听（若只需本机监听，则改为127.0.0.1或localhost）</li>
+<li>forward-socks5 为ss的类型(forward-socks4, forward-socks4a, forward-socks5 and forward-socks5t)</li>
+<li>1080为ss的监听端口<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">vim /usr/<span class="built_in">local</span>/etc/privoxy/config</div><div class="line">	listen-address 0.0.0.0:8118</div><div class="line">	forward-socks5 / localhost:1080 .</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="Launch-Privoxy"><a href="#Launch-Privoxy" class="headerlink" title="Launch Privoxy"></a>Launch Privoxy</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/<span class="built_in">local</span>/sbin/privoxy /usr/<span class="built_in">local</span>/etc/privoxy/config</div></pre></td></tr></table></figure>
+<h1 id="Verify"><a href="#Verify" class="headerlink" title="Verify"></a>Verify</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">lsof -i :8118</div><div class="line">netstat -an | grep 8118</div></pre></td></tr></table></figure>
+<h1 id="Connect"><a href="#Connect" class="headerlink" title="Connect"></a>Connect</h1><p>Mac端采用Wifi共享有线网络，手机端(我这是Nintendo Switch)连接后，选择Manaual的HTTP Proxy，其中：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Server: 192.168.2.1（电脑端Wifi共享的私有IP地址）</div><div class="line">Port: 8118 (Config文件中配置的监听端口)</div></pre></td></tr></table></figure></p>
+<blockquote class="blockquote-center"><p>上述亦可全部抛弃。嘿嘿，投奔集成了Privoxy的ShadowsocksX-NG怀抱中吧！注意，ShadowsocksX-NG中HTTP Proxy需要将127.0.0.1改成0.0.0.0才可局域网内监听默认1087端口。［Powered by EasyWorld（朱世易）］</p>
+</blockquote>
+<p>#<br><strong>End</strong></p>
 
       
     </div>
@@ -459,7 +468,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/markdown/" rel="tag"># markdown</a>
+            <a href="/tags/OS-X/" rel="tag"># OS X</a>
           
         </div>
       
@@ -472,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/28/3_the_unix_philosophy/" rel="next" title="The Unix Philosophy">
-                <i class="fa fa-chevron-left"></i> The Unix Philosophy
+              <a href="/2017/07/05/5_linux_shell_scripting_cookbook/" rel="next" title="Linux Shell Scripting Cookbook">
+                <i class="fa fa-chevron-left"></i> Linux Shell Scripting Cookbook
               </a>
             
           </div>
@@ -481,10 +490,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/05/5_linux_shell_scripting_cookbook/" rel="prev" title="Linux Shell Scripting Cookbook">
-                Linux Shell Scripting Cookbook <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -532,8 +537,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -605,6 +619,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Homebrew"><span class="nav-number">1.</span> <span class="nav-text">Install Homebrew</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Privoxy"><span class="nav-number">2.</span> <span class="nav-text">Install Privoxy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Modify-Config"><span class="nav-number">3.</span> <span class="nav-text">Modify Config</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Launch-Privoxy"><span class="nav-number">4.</span> <span class="nav-text">Launch Privoxy</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Verify"><span class="nav-number">5.</span> <span class="nav-text">Verify</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Connect"><span class="nav-number">6.</span> <span class="nav-text">Connect</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
       
 
